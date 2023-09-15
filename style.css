@@ -1,0 +1,9 @@
+body{
+    margin: 0px
+}
+
+#next_tetramino{
+    position: absolute;
+    top: 0px;
+    left: 600px;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <script src="constants.js"></script>
+
+</head>
+<body>
+<canvas id="game_glass"
+        width="500px"
+        height="1000px"
+        style="border:1px solid black">
+</canvas>
+
+<canvas id="next_tetramino"
+        width="200px"
+        height="200px"
+        style="border:1px solid black">
+</canvas>
+
+<script src="make_net.js">
+</script>
+
+<script>
+    let draw = new Make_net()
+    draw.make_net("game_glass", field_height, field_width)
+    draw.make_net("next_tetramino", size_of_tetramino, size_of_tetramino)
+</script>
+
+<script src="game.js">
+</script>
+
+<script src="cell.js">
+</script>
+
+<script src="keyboard_handler.js">
+</script>
+
+<script src="tetramino.js">
+</script>
+
+<script src="current_tetramino.js">
+</script>
+
+<script src="next_tetramino.js">
+</script>
+
+<script src="shadow_tetramino.js">
+</script>
+
+<script src="field.js">
+</script>
+
+<script src="main.js">
+</script>
+</body>
+</html>
