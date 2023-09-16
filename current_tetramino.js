@@ -8,6 +8,9 @@ class Current_tetramino extends Tetramino {
     move_sides(dx, dy, field){
         for(let i = 0; i < size_of_tetramino; i++){
             if(!this.check_move(dx, dy, field, i)){
+                if(dy == 1){
+                    document.dispatchEvent(my_event)
+                }
                 return false
             }
         }

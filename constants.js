@@ -2,11 +2,19 @@ const scale = 50
 const field_width = 10
 const field_height = 20
 const start_cell = 4
-const keys = {"LEFT": 97, "RIGHT": 100, "DOWN": 115, "ROTATE": 119}
+const keys = {"LEFT": 97, "RIGHT": 100, "DOWN": 115, "ROTATE": 119, "ESC": 102}
 const size_of_tetramino = 4
 const colors= ["LightGoldenrodYellow", "HotPink", "LightGreen", "Turquoise"]
 
-const my_event = new Event('build', {bubbles: true})
+const my_event = new Event("build", {bubbles: true})
+const stop_event = new Event("mine", {bubbles: true})
+const level_event = new Event("level", {bubbles: true})
+
+const speed = {"1_level": 1000, "2_level": 750, "3_level": 500}
+const level_score = {"1_level": 50, "2_level": 100, "3_level": 150}
+const scores = {"DOWN": 1, "ROW": 10}
+
+const gaming_condition = {"Play": true, "Pause": false}
 
 function rand_from_array(array){
     let rand_ind = Math.floor(Math.random() * array.length);

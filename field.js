@@ -28,10 +28,11 @@ class Field{
         }
     }
 
-    check_filled_row(){
+    check_filled_row(score){
         for(let i = 0; i < field_height; i++){
             if(this.field[i].toString() == Array(field_width).fill(1).toString()){
                 this.delete_row(i)
+                score.set_score(scores["ROW"])
             }
         }
     }
