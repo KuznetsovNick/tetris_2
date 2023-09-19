@@ -7,12 +7,13 @@ class Game{
     interval
     status
     score
-    level_speed = speed["1_level"]
+    level_speed = 1000
 
     constructor(field, current_tetramino, next_tetramino, shadow_tetramino, keyboard_handler) {
         this.current_tetramino = current_tetramino
         this.next_tetramino = next_tetramino
         this.shadow_tetramino = shadow_tetramino
+
 
         this.keyboard_handler = keyboard_handler
 
@@ -23,7 +24,7 @@ class Game{
         this.score = new Score_board()
     }
     from_current_to_next(){
-        field.add_tetramino(this.current_tetramino)
+        this.field.add_tetramino(this.current_tetramino)
 
         this.current_tetramino.set_matrix(this.next_tetramino.matrix)
         this.current_tetramino.set_color(this.next_tetramino.color)
@@ -46,41 +47,48 @@ class Game{
     resume_game(){
         this.interval = setInterval(() => {this.current_tetramino.move_sides(0, 1, this.field)
             this.shadow_tetramino.shadow(this.current_tetramino, this.field)}, this.level_speed)
+        this.status = gaming_condition["Play"]
     }
 
     stop_game(){
         clearInterval(this.interval)
+        this.status = gaming_condition["Pause"]
     }
 
     next_level(){
-        //Переписать
-        this.level_speed -= 250
+        this.level_speed -= speed
         clearInterval(this.interval)
         this.interval = setInterval(() => {this.current_tetramino.move_sides(0, 1, this.field)
             this.shadow_tetramino.shadow(this.current_tetramino, this.field)}, this.level_speed)
     }
 
-    game(){
+    restart_game(){
+        this.field.clear_field()
         this.start_configuration()
-        this.resume_game()
+        this.score.set_score(0)
+    }
 
+    add_listeners(){
         document.addEventListener("keypress", ( event) => {this.keyboard_handler.handling(event, this.field, this.current_tetramino, this.status, this.score);
             this.shadow_tetramino.shadow(this.current_tetramino, this.field)})
 
         document.addEventListener("build", (my_event) => {this.from_current_to_next()})
 
-        document.addEventListener("mine", (stop_event) => {
+        document.addEventListener("esc", (stop_event) => {
             if(this.status){
-                this.stop_game()
-                this.status = gaming_condition["Pause"]
+                game_interface.call_menu(this)
             }
             else{
-                this.resume_game()
-                this.status = gaming_condition["Play"]
+                game_interface.hide_menu(this)
             }
         })
 
         document.addEventListener("level", (level_event) => {this.next_level()})
+    }
 
+    game(){
+        this.start_configuration()
+        this.resume_game()
+        this.add_listeners()
     }
 }

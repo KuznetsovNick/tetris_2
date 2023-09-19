@@ -16,7 +16,7 @@ class Keyborad_handler{
                 case keys["DOWN"]:
                     dy = 1
                     current_tetramino.move_sides(dx, dy, field)
-                    score.set_score(scores["DOWN"])
+                    score.set_score(score.score + scores["DOWN"])
                     break
                 case keys["ROTATE"]:
                     current_tetramino.rotate(field)
@@ -28,7 +28,7 @@ class Keyborad_handler{
 
         switch (event.keyCode){
             case keys["ESC"]:
-                document.dispatchEvent(stop_event)
+                document.dispatchEvent(esc_event)
                 break
             default:
                 break

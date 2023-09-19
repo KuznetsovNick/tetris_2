@@ -1,4 +1,9 @@
 class Shadow_tetramino extends Tetramino{
+
+    constructor() {
+        super()
+        this.set_color("grey")
+    }
     shadow(tetramino, field){
         let dy = 0
         let y

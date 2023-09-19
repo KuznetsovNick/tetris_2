@@ -32,7 +32,7 @@ class Field{
         for(let i = 0; i < field_height; i++){
             if(this.field[i].toString() == Array(field_width).fill(1).toString()){
                 this.delete_row(i)
-                score.set_score(scores["ROW"])
+                score.set_score(score.score + scores["ROW"])
             }
         }
     }
@@ -59,6 +59,15 @@ class Field{
             div.set_color(tetramino.color)
 
             this.field[tetramino.cells[i].y][tetramino.cells[i].x] = "1"
+        }
+    }
+
+    clear_field(){
+        for(let i = 0; i < field_height; i++){
+            for(let j = 0; j < field_width; j++){
+                this.div_field[i][j].set_opacity("0")
+                this.field[i][j] = 0
+            }
         }
     }
 }

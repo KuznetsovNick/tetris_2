@@ -26,6 +26,13 @@ class Tetramino{
         }
     }
 
+
+    set_priority(value){
+        for(let i = 0; i < size_of_tetramino; i++){
+            this.cells[i].div.style.zIndex = value
+        }
+    }
+
     set_matrix(type){
         this.matrix = []
         for(let i = 0; i < type.length; i++){

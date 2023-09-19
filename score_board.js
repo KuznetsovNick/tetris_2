@@ -7,7 +7,7 @@ class Score_board{
 
         this.score_div.style.position = "absolute"
 
-        this.score_div.style.top = `${scale*6}px`
+        this.score_div.style.top = `${scale*7}px`
         this.score_div.style.left = `${scale*12}px`
 
         this.score_div.style.height = `${scale}px`
@@ -21,11 +21,10 @@ class Score_board{
     }
 
     set_score(value){
-        this.score += value
+        this.score = value
         this.score_div.innerHTML = this.score + " pts"
 
-        //Переписать
-        if(this.score == 1 || this.score == 50 || this.score == 100 ){
+        if(this.score == level_score["1_level"] || this.score == level_score["2_level"] || this.score == level_score["3_level"] ){
             document.dispatchEvent(level_event)
         }
     }
