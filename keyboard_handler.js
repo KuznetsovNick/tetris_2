@@ -21,19 +21,12 @@ class Keyborad_handler{
                 case keys["ROTATE"]:
                     current_tetramino.rotate(field)
                     break
+                case keys["ESC"]:
+                    document.dispatchEvent(esc_event)
+                    break
                 default:
                     break
             }
         }
-
-        switch (event.keyCode){
-            case keys["ESC"]:
-                document.dispatchEvent(esc_event)
-                break
-            default:
-                break
-        }
-
-
     }
 }

@@ -14,7 +14,8 @@ class Menu{
         this.resume.style.opacity = "0"
         this.resume.style.top = `${scale*7}px`
         this.resume.style.left = `${scale*2}px`
-        this.resume.innerHTML = "resume"
+        this.resume.style.fontSize = `${scale}px`
+        this.resume.innerHTML = "Resume"
 
 
         this.restart = document.createElement('div')
@@ -26,7 +27,8 @@ class Menu{
         this.restart.style.opacity = "0"
         this.restart.style.top = `${scale*9}px`
         this.restart.style.left = `${scale*2}px`
-        this.restart.innerHTML = "restart"
+        this.restart.style.fontSize = `${scale}px`
+        this.restart.innerHTML = "Restart"
 
         this.change_user = document.createElement('div')
         document.body.appendChild(this.change_user)
@@ -37,7 +39,8 @@ class Menu{
         this.change_user.style.opacity = "0"
         this.change_user.style.top = `${scale*11}px`
         this.change_user.style.left = `${scale*2}px`
-        this.change_user.innerHTML = "change_user"
+        this.change_user.style.fontSize = `${scale}px`
+        this.change_user.innerHTML = "Change user"
 
         this.div_background = document.createElement('div')
         document.body.appendChild(this.div_background)

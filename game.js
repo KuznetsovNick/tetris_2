@@ -25,15 +25,16 @@ class Game{
     }
     from_current_to_next(){
         this.field.add_tetramino(this.current_tetramino)
+        this.field.check_filled_row(this.score)
 
         this.current_tetramino.set_matrix(this.next_tetramino.matrix)
         this.current_tetramino.set_color(this.next_tetramino.color)
 
         this.next_tetramino.generate_new()
 
-        this.current_tetramino.put_it_in_place()
-
-        this.field.check_filled_row(this.score)
+        if(this.field.check_start_position(this.current_tetramino.matrix)){
+            this.current_tetramino.put_it_in_place()
+        }
     }
 
     start_configuration(){
@@ -63,32 +64,14 @@ class Game{
     }
 
     restart_game(){
+        this.level_speed = 1000
         this.field.clear_field()
         this.start_configuration()
         this.score.set_score(0)
     }
 
-    add_listeners(){
-        document.addEventListener("keypress", ( event) => {this.keyboard_handler.handling(event, this.field, this.current_tetramino, this.status, this.score);
-            this.shadow_tetramino.shadow(this.current_tetramino, this.field)})
-
-        document.addEventListener("build", (my_event) => {this.from_current_to_next()})
-
-        document.addEventListener("esc", (stop_event) => {
-            if(this.status){
-                game_interface.call_menu(this)
-            }
-            else{
-                game_interface.hide_menu(this)
-            }
-        })
-
-        document.addEventListener("level", (level_event) => {this.next_level()})
-    }
-
     game(){
         this.start_configuration()
         this.resume_game()
-        this.add_listeners()
     }
 }

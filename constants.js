@@ -10,12 +10,18 @@ const my_event = new Event("build", {bubbles: true})
 const esc_event = new Event("esc", {bubbles: true})
 const level_event = new Event("level", {bubbles: true})
 const name_entered = new Event("name_entered", {bubbles: true})
+const game_finished = new Event("game_finished", {bubbles: true})
 
 const speed = 250
 const level_score = {"1_level": 50, "2_level": 100, "3_level": 150}
-const scores = {"DOWN": 1, "ROW": 10}
+const scores = {"DOWN": 1, "ROW": 30}
 
 const gaming_condition = {"Play": true, "Pause": false}
+
+const top_length = 3
+const top_colors = ["gold", "silver", "SaddleBrown"]
+
+const drop_sound = new Audio("drop.mp3")
 
 function rand_from_array(array){
     let rand_ind = Math.floor(Math.random() * array.length);

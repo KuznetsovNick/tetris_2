@@ -52,8 +52,4 @@ class Current_tetramino extends Tetramino {
 
         return true
     }
-
-    copy(tetramino){
-
-    }
 }

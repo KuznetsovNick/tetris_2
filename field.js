@@ -29,21 +29,25 @@ class Field{
     }
 
     check_filled_row(score){
+        let flag = false
         for(let i = 0; i < field_height; i++){
             if(this.field[i].toString() == Array(field_width).fill(1).toString()){
                 this.delete_row(i)
                 score.set_score(score.score + scores["ROW"])
+                flag = true
             }
+        }
+
+        if(flag){
+            //drop_sound.play()
         }
     }
 
-    check_start_position(){
-        let next_tetramino_matrix = tetraminos[rand_from_array(tetraminos_keys)]
-        for(let i = 0; i < next_tetramino_matrix.length; i++){
-            for(let j = 0; j < next_tetramino_matrix.length; j++){
-                if(next_tetramino_matrix[i][j] == "1" && this.field[i][j + start_cell] == "1"){
-                    clearInterval(game)
-                    document.removeEventListener("keypress", ( event) => {keyboard_handler.handling(event, field, cur_tetr)})
+    check_start_position(tetramino_matrix){
+        for(let i = 0; i < tetramino_matrix.length; i++){
+            for(let j = 0; j < tetramino_matrix.length; j++){
+                if(tetramino_matrix[i][j] == "1" && this.field[i][j + start_cell] == "1"){
+                    document.dispatchEvent(game_finished)
                     return false
                 }
             }

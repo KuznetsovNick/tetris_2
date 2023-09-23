@@ -15,8 +15,9 @@ function start_game(){
     let next_tetr = new Next_tetramino()
 
     let game = new Game(field, cur_tetr, next_tetr, shadow_tetr, keyboard_handler)
-    game_interface.menu.game = game
-    game.game()
+    game_interface.add_game(game)
+    game_interface.add_listeners()
+    game_interface.game.game()
 
     document.removeEventListener("name_entered", start_game)
 }
