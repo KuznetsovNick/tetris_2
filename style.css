@@ -7,3 +7,112 @@ body{
     top: 0px;
     left: 600px;
 }
+
+#level{
+    position: absolute;
+    font-size: 37.5px;
+    width: 200px;
+    height: 50px;
+    top: 450px;
+    left: 600px;
+    border: 1px solid black;
+    opacity: 0;
+}
+
+#W{
+    position: absolute;
+    font-size: 37.5px;
+    width: 40px;
+    height: 40px;
+    left: 600px;
+    border: 3px solid black;
+    top: 755px;
+    z-index: 2;
+}
+#A{
+    position: absolute;
+    font-size: 37.5px;
+    width: 40px;
+    height: 40px;
+    left: 600px;
+    border: 3px solid black;
+    top: 805px;
+    z-index: 2;
+}
+#D{
+    position: absolute;
+    font-size: 37.5px;
+    width: 40px;
+    height: 40px;
+    left: 600px;
+    border: 3px solid black;
+    top: 855px;
+    z-index: 2;
+}
+#S{
+    position: absolute;
+    font-size: 37.5px;
+    width: 40px;
+    height: 40px;
+    left: 600px;
+    border: 3px solid black;
+    top: 905px;
+    z-index: 2;
+}
+#F{
+    position: absolute;
+    font-size: 37.5px;
+    width: 40px;
+    height: 40px;
+    left: 600px;
+    border: 3px solid black;
+    top: 955px;
+    z-index: 2;
+}
+
+#W_text{
+    position: absolute;
+    font-size: 25px;
+    width: 125px;
+    height: 40px;
+    left: 665px;
+    top: 765px;
+    z-index: 2;
+}
+#A_text{
+    position: absolute;
+    font-size: 25px;
+    width: 125px;
+    height: 40px;
+    left: 665px;
+    top: 815px;
+    z-index: 2;
+}
+#D_text{
+    position: absolute;
+    font-size: 25px;
+    width: 125px;
+    height: 40px;
+    left: 665px;
+    top: 865px;
+    z-index: 2;
+}
+#S_text{
+    position: absolute;
+    font-size: 25px;
+    width: 125px;
+    height: 40px;
+    left: 665px;
+    top: 915px;
+    z-index: 2;
+}
+#F_text{
+    position: absolute;
+    font-size: 25px;
+    width: 125px;
+    height: 40px;
+    left: 665px;
+    top: 965px;
+    z-index: 2;
+}
+

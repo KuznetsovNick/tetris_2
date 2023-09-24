@@ -54,6 +54,9 @@ class User{
 
     name_entered(){
         this.name = document.getElementById("name").value
+        if(this.name == ""){
+            this.name = "Unknown"
+        }
         this.div_background.style.opacity = "0"
         this.div_background.style.zIndex = "0"
         this.input.disabled = true

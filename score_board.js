@@ -13,7 +13,7 @@ class Score_board{
         this.score_div.style.height = `${scale}px`
         this.score_div.style.width = `${scale*4}px`
 
-        this.score_div.style.fontSize = `${scale}px`
+        this.score_div.style.fontSize = `${scale*0.75}px`
 
         this.score_div.style.border = "1px solid black"
 
@@ -21,11 +21,12 @@ class Score_board{
     }
 
     set_score(value){
-        this.score = value
-        this.score_div.innerHTML = this.score + " pts"
-
-        if(this.score == level_score["1_level"] || this.score == level_score["2_level"] || this.score == level_score["3_level"] ){
+        if((this.score < level_score["2_level"] && value >= level_score["2_level"])
+            || (this.score < level_score["3_level"] && value >= level_score["3_level"])){
+            this.level++
             document.dispatchEvent(level_event)
         }
+        this.score = value
+        this.score_div.innerHTML = this.score + " pts"
     }
 }

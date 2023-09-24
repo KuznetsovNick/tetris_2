@@ -8,6 +8,8 @@ class Game{
     status
     score
     level_speed = 1000
+    level_div
+    level = 1
 
     constructor(field, current_tetramino, next_tetramino, shadow_tetramino, keyboard_handler) {
         this.current_tetramino = current_tetramino
@@ -22,6 +24,10 @@ class Game{
         this.status = gaming_condition["Play"]
 
         this.score = new Score_board()
+
+        this.level_div = document.getElementById("level")
+        this.level_div.style.opacity = "1"
+        this.level_div.innerHTML = `${this.level} level`
     }
     from_current_to_next(){
         this.field.add_tetramino(this.current_tetramino)
@@ -61,6 +67,8 @@ class Game{
         clearInterval(this.interval)
         this.interval = setInterval(() => {this.current_tetramino.move_sides(0, 1, this.field)
             this.shadow_tetramino.shadow(this.current_tetramino, this.field)}, this.level_speed)
+        this.level++
+        this.level_div.innerHTML = `${this.level} level`
     }
 
     restart_game(){

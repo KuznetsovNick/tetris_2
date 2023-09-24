@@ -12,8 +12,8 @@ const level_event = new Event("level", {bubbles: true})
 const name_entered = new Event("name_entered", {bubbles: true})
 const game_finished = new Event("game_finished", {bubbles: true})
 
-const speed = 250
-const level_score = {"1_level": 50, "2_level": 100, "3_level": 150}
+const speed = 200
+const level_score = {"1_level": 0, "2_level": 200, "3_level": 500}
 const scores = {"DOWN": 1, "ROW": 30}
 
 const gaming_condition = {"Play": true, "Pause": false}

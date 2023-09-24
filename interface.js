@@ -90,11 +90,15 @@ class Interface{
         this.menu.change_user.addEventListener("click", this.f_change_user)
     }
 
-    add_listeners(){
-        document.addEventListener("keypress", ( event) => {this.game.keyboard_handler.handling(event, this.game.field, this.game.current_tetramino, this.game.status, this.game.score);
-            this.game.shadow_tetramino.shadow(this.game.current_tetramino, this.game.field)})
+    add_listeners() {
+        document.addEventListener("keypress", (event) => {
+            this.game.keyboard_handler.handling(event, this.game.field, this.game.current_tetramino, this.game.status, this.game.score);
+            this.game.shadow_tetramino.shadow(this.game.current_tetramino, this.game.field)
+        })
 
-        document.addEventListener("build", (my_event) => {this.game.from_current_to_next()})
+        document.addEventListener("build", (my_event) => {
+            this.game.from_current_to_next()
+        })
 
         document.addEventListener("esc", (stop_event) => {
             this.call_menu(this.game)
@@ -104,9 +108,10 @@ class Interface{
             this.the_end()
         })
 
-        //document.addEventListener("level", (level_event) => {this.game.next_level()})
+        document.addEventListener("level", (level_event) => {
+            this.game.next_level()
+        })
     }
-
     g_resume(obj, event){
         obj.game.resume_game()
         obj.hide_menu()

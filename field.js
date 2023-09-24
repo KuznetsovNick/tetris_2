@@ -39,7 +39,7 @@ class Field{
         }
 
         if(flag){
-            //drop_sound.play()
+            drop_sound.play()
         }
     }
 

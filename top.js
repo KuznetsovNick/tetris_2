@@ -14,7 +14,7 @@ class Top{
             this.places[i].style.height = `${scale}px`
             this.places[i].style.backgroundColor = top_colors[i]
             this.places[i].style.opacity = "1"
-            this.places[i].style.top = `${scale*(10+i)}px`
+            this.places[i].style.top = `${scale*(11+i)}px`
             this.places[i].style.left = `${scale*12}px`
             this.places[i].style.zIndex = "2"
             this.places[i].style.fontSize = `${scale*0.75}px`
